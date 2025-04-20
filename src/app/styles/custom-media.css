@@ -1,0 +1,28 @@
+@custom-media --smallest (max-width: 399px);
+
+@custom-media --xs (min-width: 400px);
+@custom-media --xs-only (min-width: 400px) and (max-width: 639px);
+@custom-media --xs-down (max-width: 639px);
+
+@custom-media --sm (min-width: 640px);
+@custom-media --sm-only (min-width: 640px) and (max-width: 767px);
+@custom-media --sm-down (max-width: 767px);
+
+@custom-media --md (min-width: 768px);
+@custom-media --md-only (min-width: 768px) and (max-width: 1023px);
+@custom-media --md-down (max-width: 1023px);
+
+@custom-media --lg (min-width: 1024px);
+@custom-media --lg-only (min-width: 1024px) and (max-width: 1279px);
+@custom-media --lg-down (max-width: 1279px);
+
+@custom-media --xl (min-width: 1280px);
+@custom-media --xl-only (min-width: 1280px) and (max-width: 1535px);
+@custom-media --xl-down (max-width: 1535px);
+
+@custom-media --2xl (min-width: 1536px);
+
+@custom-media --motion (prefers-reduced-motion: no-preference);
+@custom-media --no-motion (prefers-reduced-motion: reduce);
+@custom-media --hover (hover: hover);
+@custom-media --p3 (color-gamut: p3);

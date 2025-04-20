@@ -1,0 +1,169 @@
+.root {
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+}
+
+.contestant {
+	user-select: none;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0;
+	font-size: 1rem;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.contestantName {
+	font-family: var(--font-yellowtail), cursive;
+	font-size: 3.75rem;
+	line-height: 1;
+	text-align: center;
+	rotate: -2deg;
+	text-transform: none;
+	font-weight: initial;
+	color: var(--color-yellow-12);
+	text-shadow:
+		0 0 1px hsl(0 0% 100% / 0.5),
+		0 0 3px hsl(0 0% 100% / 0.5),
+		0 0 4px hsl(0 0% 100% / 0.5),
+		0 0 3px hsl(304deg 100% 53% / 0.5);
+}
+
+.wheelContainer {
+	--_size: min(60vh, 800px);
+	position: relative;
+	width: var(--_size);
+	aspect-ratio: 1 / 1;
+	container-type: inline-size;
+	display: grid;
+	position: relative;
+	z-index: 1;
+	margin: 0 auto;
+
+	&::before {
+		content: "";
+		position: absolute;
+		width: calc(100% + 2cqi);
+		height: calc(100% + 2cqi);
+		translate: -1cqi -1cqi;
+		inset: 0;
+		place-self: center;
+		clip-path: inset(0 0 0 0 round 50%);
+		background-color: hsl(38deg 61% 40%);
+		box-shadow:
+			rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+			rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+	}
+
+	&::after {
+		aspect-ratio: 1;
+		background-color: var(--color-yellow-9);
+		clip-path: polygon(0 0, 0 100%, 100% 50%);
+		content: "";
+		height: 4cqi;
+		position: absolute;
+		place-self: center start;
+		scale: 1.5;
+		translate: -1cqi 0;
+		box-shadow:
+			hsl(240deg 30% 28% / 0.25) 0px 50px 100px -20px,
+			hsl(0 0% 0% / 0.3) 0px 30px 60px -30px,
+			var(--color-orange-a9) 0px -2px 6px 0px inset;
+	}
+
+	& > * {
+		position: absolute;
+	}
+}
+
+.spinButton {
+	font-family: var(--font-fortune-wheel, sans-serif);
+	position: absolute;
+	aspect-ratio: 1 / 1;
+	background: hsl(38deg 62% 52%);
+	user-select: none;
+	border: 0;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 3.25cqi;
+	place-self: center;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: hsl(48deg 84% 71%);
+	text-transform: uppercase;
+	width: 20cqi;
+	text-shadow: max(1px, 0.325cqi) max(1px, 0.325cqi) 0px hsl(0deg 0% 0% / 0.325);
+	line-height: 1;
+	outline: max(2px, 0.325cqi) solid currentColor;
+	outline-offset: calc(max(4px, 0.65cqi) * -1);
+}
+
+.wheel {
+	position: absolute;
+	clip-path: inset(0 0 0 0 round 50%);
+	display: grid;
+	inset: 0;
+	place-content: center start;
+	rotate: var(--rotation);
+	transition: rotate 9500ms cubic-bezier(0.34, -0.205, 0, 1.03);
+}
+
+.wheelSegment {
+	background-color: var(--_color-bg, gray);
+	align-content: center;
+	aspect-ratio: 1 / calc(2 * tan(180deg / var(--_items)));
+	clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+	display: grid;
+	font-size: 5cqi;
+	grid-area: 1 / -1;
+	padding-left: 1ch;
+	rotate: calc(360deg / var(--_items) * calc(var(--_index) - 1));
+	transform-origin: center right;
+	user-select: none;
+	width: 50cqi;
+	font-family: var(--font-clarendon, sans-serif);
+	text-transform: uppercase;
+	line-height: 0.9;
+	text-align: center;
+	color: var(--_color-fg, #000);
+}
+
+.wheelSegmentValue {
+	position: relative;
+	display: block;
+	padding-inline-end: 12.25cqi;
+
+	&:not([data-value="Bankrupt"]) {
+		-webkit-text-stroke: max(1px, 0.325cqi) var(--color-white);
+		text-stroke: max(1px, 0.325cqi) var(--color-white);
+		paint-order: stroke fill;
+	}
+
+	&:not([data-value="Bankrupt"])::before {
+		content: attr(data-value);
+		position: absolute;
+		inset: 0;
+		translate: max(1px, 0.325cqi) max(1px, 0.325cqi);
+		-webkit-text-stroke: 0;
+		text-stroke: 0;
+		color: var(--color-black);
+		opacity: 0.5;
+		z-index: -1;
+		padding: inherit;
+		pointer-events: none;
+	}
+}
+
+.controls {
+	margin-top: 20px;
+}

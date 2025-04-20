@@ -1,0 +1,30 @@
+{
+	"name": "react-miami",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --turbopack",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"format": "prettier --write ."
+	},
+	"dependencies": {
+		"clsx": "^2.1.1",
+		"motion": "^12.6.2",
+		"next": "15.2.4",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0"
+	},
+	"devDependencies": {
+		"@csstools/postcss-global-data": "^3.0.0",
+		"@types/node": "^20",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"postcss-custom-media": "^11.0.5",
+		"postcss-flexbugs-fixes": "^5.0.2",
+		"postcss-preset-env": "^10.1.5",
+		"prettier": "^3.5.3",
+		"typescript": "^5"
+	}
+}

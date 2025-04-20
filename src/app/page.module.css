@@ -1,0 +1,71 @@
+.root {
+	block-size: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+	container-type: size;
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1cqi;
+}
+
+.title {
+	font-family: var(--font-yellowtail), cursive;
+	font-size: 5.75rem;
+	line-height: 1;
+	text-align: center;
+	rotate: -2deg;
+	padding: 0.5rem 0;
+	text-shadow:
+		0 0 1px hsl(0 0% 100% / 0.5),
+		0 0 3px hsl(0 0% 100% / 0.5),
+		0 0 4px hsl(0 0% 100% / 0.5),
+		0 0 3px hsl(304 100% 53% / 0.5),
+		0 0 6px hsl(304 100% 53% / 0.5),
+		0 0 7px hsl(304 100% 53% / 0.5),
+		0 0 3px hsl(304 100% 53% / 0.5),
+		0 0 5px hsl(304 100% 53% / 0.5);
+}
+
+.subTitle {
+	font-family: var(--font-fortune-wheel, sans-serif);
+	border: 0;
+	font-size: 2.5rem;
+	text-align: center;
+	justify-content: center;
+	color: hsl(48deg 84% 71%);
+	text-transform: uppercase;
+	max-width: 10em;
+	line-height: 1;
+}
+
+.bio {
+	font-size: 5rem;
+	font-family: var(--font-berkeley-mono, sans-serif);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	/* align-items: center; */
+	line-height: 1.125;
+}
+
+.bioStat {
+	display: flex;
+	gap: 1ch;
+	color: var(--color-pink-9);
+}
+
+.bioStat :global(dt)::after {
+	content: ":";
+}
+
+.bioStat :global(dd) {
+	color: var(--color-white);
+}
